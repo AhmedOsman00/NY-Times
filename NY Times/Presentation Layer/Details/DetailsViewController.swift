@@ -18,6 +18,10 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        populateData()
+    }
+    
+    func populateData() {
         articleImage.sd_setImage(with: URL(string: article?.media?.first?.mediaMeta.last?.url ?? ""), completed: nil)
         titleLabel.text = article?.title
         detailsTextView.text = article?.abstract

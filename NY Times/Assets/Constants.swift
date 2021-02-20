@@ -12,7 +12,7 @@ struct K {
         static let article = "ArticleCell"
     }
     
-    struct controllersIdentifiers {
+    struct controllerIdentifiers {
         static let articleDetails = "DetailsViewController"
     }
 }

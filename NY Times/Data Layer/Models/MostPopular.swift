@@ -20,17 +20,21 @@ struct Container<T: Codable>: Codable {
     }
 }
 
-struct MostPopular: Codable {
+struct MostPopular: Codable, Equatable {
     let title: String?
     let abstract: String?
     let media: [Media]?
 }
 
-struct Media: Codable {
+struct Media: Codable, Equatable {
     var mediaMeta: [MediaMeta]
     
     enum CodingKeys: String, CodingKey {
         case mediaMeta = "media-metadata"
+    }
+    
+    init(mediaMeta: [MediaMeta]) {
+        self.mediaMeta = mediaMeta
     }
     
     init(from decoder: Decoder) throws {
@@ -39,6 +43,6 @@ struct Media: Codable {
     }
 }
 
-struct MediaMeta: Codable {
+struct MediaMeta: Codable, Equatable {
     let url: String?
 }
